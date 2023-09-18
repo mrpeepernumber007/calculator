@@ -32,3 +32,6 @@ function operate(n1, n2, opt) {
             break;
     }
 }
+
+
+//toma los botones como un string, luego los convierte a numeros
