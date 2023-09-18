@@ -1,21 +1,28 @@
+//Create html elements and variables
+const container = document.querySelector('.container')
+const result = document.createElement('div')
+result.classList.add('res')
+container.appendChild(result)
+
 const num1 = ''
 const num2 = ''
 const operator = ''
 
-
+//Operation functions
 function add (a, b) {
-    return console.log(a+b);
+    return result.textContent = `${a + b}`
 }
 function subtract (a, b) {
-    return console.log(a-b);
+    return result.textContent = `${a - b}`
 }
 function multiply (a, b) {
-    return console.log(a*b);
+    return result.textContent = `${a * b}`
 }
 function divide (a, b) {
-    return console.log(a/b);
+    return result.textContent = `${a / b}`
 }
 
+//Check operation choice
 function operate(n1, n2, opt) {
     switch (opt) {
         case 'add':
@@ -33,10 +40,11 @@ function operate(n1, n2, opt) {
     }
 }
 
+//Prompt calculation
 function calculator () {
     const number1 = +prompt('First number: ')
     const number2 = +prompt('Second number: ')
-    const operation = prompt('Operation: ')
+    const operation = prompt('Operation: ').toLowerCase()
     operate(number1, number2, operation)
 }
 
