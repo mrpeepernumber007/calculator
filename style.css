@@ -1,0 +1,20 @@
+body {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background-color: black;
+}
+
+.calculator {
+    height: 660px;
+    width: 460px;
+    background-color: #e7e7e7;
+    border-radius: 10px;
+    margin: 40px 0px;
+    box-shadow: 0px 0px 10px #fff;
+}
+
+
+
+
+/* Añadir efecto de generacion de numeros y operadores con el movimiento del mouse fuera de la calculadora */
