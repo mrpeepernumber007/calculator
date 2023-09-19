@@ -1,5 +1,103 @@
-.res {
-    margin: 20px 0px;
-    height: 50px;
-    width: 50px;
+body {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background-color: black;
 }
+
+.calculator {
+    height: 660px;
+    width: 460px;
+    background-color: #e7e7e7;
+    background-color: #a18bdd;
+    border-radius: 10px;
+    margin: 40px 0px;
+    box-shadow: 0px 0px 10px #fff;
+    display: flex;
+    flex-direction: column;
+    overflow: hidden;
+}
+
+.visor {
+    margin: 20px 5px;
+    background-color: #fff;
+    height: 100px;
+    width: 80%;
+    border-radius: 10px;
+    display: flex;
+    align-self: center;
+    align-items: center;
+    justify-content: start;
+    padding: 0px 30px;
+    font-size: 35px;
+    font-weight: 600;
+}
+
+.divider {
+    background-color: #333;
+    height: 5px;
+    width: 90%;
+    align-self: center;
+    border-radius: 2px;
+}
+
+.numbers {
+    border-radius: 10%;
+    padding: 10px;
+    font-size: 3em;
+    font-family: Verdana, Geneva, Tahoma, sans-serif;
+    color: #333;
+    background-color: white;
+    flex-shrink: 0;
+}
+
+.numbers:hover {
+    background-color: black;
+    color: white;
+}
+
+.operators {
+    color: white;
+    background-color: black;
+    padding: 10px 15px;
+    border-radius: 5px;
+    margin-bottom: 10px;
+    font-size: large;
+}
+
+.operators:hover {
+    background-color: white;
+    color: black;
+}
+
+.numbers-cont {
+    justify-content: left;
+    padding: 30px;
+    flex-grow: 3;
+    display: flex;
+    flex-wrap: wrap;
+    align-items: flex-start;
+    justify-content: space-evenly;
+    overflow: hidden;
+    padding: 0px 100px;
+    gap: 10px;
+}
+
+.others-cont {
+    flex-grow: 1;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 30px;
+    font-size: medium;
+}
+.operator-cont {
+    flex-grow: 1;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 30px;
+}
+
+
+/* Añadir efecto de generacion de numeros y operadores con el movimiento del mouse fuera de la calculadora */
