@@ -5,6 +5,7 @@ const visor = document.querySelector('.visor')
 const clearBtn = document.querySelector('.clear')
 const operators = document.querySelectorAll('.operators')
 const equalSign = document.querySelector('.equals')
+const backSpace = document.querySelector('.delete')
 
 
 let num1 = ''
@@ -128,6 +129,21 @@ function calculate() {
     activeOp = true
 }
 
-//when activeOp is true, equal sign flips it back to false
-
-//btn back use pop(), or pop() after Array.from(), then join('')
+backSpace.addEventListener('click', () => {
+    let n1 = Array.from(num1)
+    let n2 = Array.from(num2)
+    if(visor.textContent === num1) {
+        n1.pop()
+        n1 = n1.join('')
+        num1 = n1
+        updateVisor(num1)
+    } else if(visor.textContent === num2) {
+        n2.pop()
+        n2 = n2.join('')
+        num2 = n2
+        updateVisor(num2)
+    } else if (visor.textContent === operator) {
+        operator = ''
+        updateVisor(operator)
+    }
+})
