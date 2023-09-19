@@ -77,11 +77,11 @@ numbers.forEach((num) => {
     num.addEventListener('click', () => {
         if((result) || (result === 0)) {num1 = result}
         if(activeOp) {
-            num2 += +num.value
+            num2 += num.value
             updateVisor(num2)
         }
         else {
-            num1 += +num.value
+            num1 += num.value
             updateVisor(num1)
         }
     })
