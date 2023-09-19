@@ -1,5 +1,3 @@
-//Create html elements and variables
-
 const numbers = document.querySelectorAll('.numbers')
 const visor = document.querySelector('.visor')
 const clearBtn = document.querySelector('.clear')
@@ -7,17 +5,11 @@ const operators = document.querySelectorAll('.operators')
 const equalSign = document.querySelector('.equals')
 const backSpace = document.querySelector('.delete')
 
-
 let num1 = ''
 let num2 = ''
 let operator = ''
 let result
-
 let activeOp = false
-let addition = false
-let subtraction = false
-let multiplication = false
-let division = false
 
 //Operation functions
 function add (a, b) {
@@ -38,7 +30,6 @@ function operate(n1, n2, opt) {
     let res = 'operador desconocido'
     n1 = +n1
     n2 = +n2
-    console.log('operator is ' + opt);
     switch (opt) {
         case '+':
             res = add(n1, n2)
@@ -51,9 +42,9 @@ function operate(n1, n2, opt) {
             break;
         case '/':
             if(n2 === 0) {
-                clearValues('clear')
-                updateVisor('You broke the universe!')
-                return;
+                clearValues('clear', 'delete Operator')
+                res = 'You broke the universe!'
+                return res;
             }
             res = divide(n1, n2)
             break;
@@ -80,7 +71,7 @@ function clearValues(clearOrNot) {
     }
 }
 
-clearBtn.addEventListener('click', () => clearValues('clear'))
+clearBtn.addEventListener('click', () => clearValues('clear', 'delete Operator'))
 
 numbers.forEach((num) => {
     num.addEventListener('click', () => {
@@ -104,27 +95,18 @@ operators.forEach((opt) => {
             calculate()
         }
         operator = opt.value
-        console.log('operador en operatorsEL es ' + operator);
     })
 })
 
 equalSign.addEventListener('click', () => {
-    console.log('operador en equal sign es ' + operator);
     calculate()
 })
 
 function calculate() {
     num1 = +num1
     num2 = +num2
-    // if(!num1) {
-    //     result = operate(result, num2, operator)
-    //     clearValues('delete Operator')
-    // } else {
-    //     result = operate(num1, num2, operator)
-    // }
     result = operate(num1, num2, operator)
     updateVisor(result)
-    // clearValues('delete Operator')
     clearValues()
     activeOp = true
 }
