@@ -34,7 +34,10 @@ function divide (a, b) {
 
 //Check operation choice
 function operate(n1, n2, opt) {
-    let res
+    let res = 'operador desconocido'
+    n1 = +n1
+    n2 = +n2
+    console.log('operator is ' + opt);
     switch (opt) {
         case '+':
             res = add(n1, n2)
@@ -65,11 +68,14 @@ function updateVisor (string) {
 function clearValues(clearOrNot) {
     num1 = ''
     num2 = ''
-    operator = ''
     activeOp = false
-    if(arguments[0] === 'clear'){
+    let args = Array.from(arguments)
+    if(args.includes('clear')){
         updateVisor('')
         result = ''
+    }
+    if(args.includes('delete Operator')) {
+        operator = ''
     }
 }
 
@@ -79,11 +85,11 @@ numbers.forEach((num) => {
     num.addEventListener('click', () => {
         if((result) || (result === 0)) {num1 = result}
         if(activeOp) {
-            num2 += num.value
+            num2 += +num.value
             updateVisor(num2)
         }
         else {
-            num1 += num.value
+            num1 += +num.value
             updateVisor(num1)
         }
     })
@@ -93,18 +99,34 @@ operators.forEach((opt) => {
     opt.addEventListener('click', () => {
         activeOp = true
         updateVisor(opt.value)
+        if(num2) {
+            calculate()
+        }
         operator = opt.value
+        console.log('operador en operatorsEL es ' + operator);
     })
 })
 
 equalSign.addEventListener('click', () => {
-    num1 = +num1
-    num2 = +num2
-    result = operate(num1, num2, operator)
-    updateVisor(result)
-    clearValues()
+    console.log('operador en equal sign es ' + operator);
+    calculate()
 })
 
+function calculate() {
+    num1 = +num1
+    num2 = +num2
+    // if(!num1) {
+    //     result = operate(result, num2, operator)
+    //     clearValues('delete Operator')
+    // } else {
+    //     result = operate(num1, num2, operator)
+    // }
+    result = operate(num1, num2, operator)
+    updateVisor(result)
+    // clearValues('delete Operator')
+    clearValues()
+    activeOp = true
+}
 
 //when activeOp is true, equal sign flips it back to false
 
